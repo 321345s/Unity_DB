@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Series : MonoBehaviour
 {
@@ -9,6 +11,12 @@ public class Series : MonoBehaviour
 
     public float[] TimeSubSolution;//第一个数据没用但是得插
     public int[] ButtonSeriesSolution;
+    public string nextScene;
+
+
+
+
+    public PlayMusic[] ArrPlayMusic;
 
     public float[] playerTimeSub;
     public int[] playerButtonSeries;
@@ -21,6 +29,9 @@ public class Series : MonoBehaviour
     public Text QualifiedText;
     public Text ScoreText;
 
+
+    public  GameObject HiddenButton;
+
     public void PressButton(int num)
     {
         playerButtonSeries[currIndex] = num;
@@ -28,6 +39,8 @@ public class Series : MonoBehaviour
         playerTimeSub[currIndex] = Time.time - LastPressTime;
 
         LastPressTime = Time.time;
+
+        
 
         
 
@@ -57,6 +70,12 @@ public class Series : MonoBehaviour
             {
                 QualifiedText.text = "Qualified";
                 ScoreText.text = "Your Score:" + playerPoints.ToString();
+                /*Thread.Sleep(1000);*/
+                /*SceneManager.LoadScene(nextScene);*/
+                /*GameObject gameObject = GameObject.find("MusicPlayer");
+                gameObject.playMusic();*/
+                HiddenButton HB = HiddenButton.GetComponent<HiddenButton>();
+                HB.SetDisplay();
             }
             else
             {
@@ -84,7 +103,7 @@ public class Series : MonoBehaviour
     {
         /*Debug.Log("In CheckSolution:");*/
         const float MAXSCORE = 100;
-        const float QUALIFYSCORE = 80;
+        const float QUALIFYSCORE = 50;//默认为80为了方便测试改成了50
         float pointsPerButton = (MAXSCORE / 2) / maxButtonPress;
         float pointsPerTimeSub = (MAXSCORE / 2) / (maxButtonPress-1);
         
@@ -128,6 +147,10 @@ public class Series : MonoBehaviour
             return false;
         }
     }
+
+  
+
+  
 
 
 
