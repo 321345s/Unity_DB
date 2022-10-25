@@ -21,6 +21,16 @@ public class TextEffects : MonoBehaviour
         i = 15;
     }
 
+    public void ReSet()
+    {
+        ison = true;
+        str = tex.text;
+        tex.text = "";
+        i = 15;
+        str1 = "";
+        index = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {

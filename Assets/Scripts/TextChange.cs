@@ -11,6 +11,9 @@ public class TextChange : MonoBehaviour
     public string TextNow;
     public string NextScene;
     public Text text;
+    public int CharacterPreIndex;
+
+    public GameObject Character;
 
     void start()
     {
@@ -24,6 +27,8 @@ public class TextChange : MonoBehaviour
     {
         TextNow = TextContent[TextIndex];
         text.text = TextNow;
+        TextEffects te = text.GetComponent<TextEffects>();
+        te.ReSet();
     }
 
     public void TextBefore()
@@ -41,6 +46,11 @@ public class TextChange : MonoBehaviour
         {
             TextIndex++;
             TextUpdate();
+            if (TextIndex == CharacterPreIndex)
+            {
+                Transparency Chara = Character.GetComponent<Transparency>();
+                Chara.SetPresent();
+            }
         }
         else
         {

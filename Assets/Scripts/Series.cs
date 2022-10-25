@@ -26,11 +26,26 @@ public class Series : MonoBehaviour
     private float LastPressTime;
     private float playerPoints;
 
-    public Text QualifiedText;
-    public Text ScoreText;
+    /*public Text QualifiedText;
+    public Text ScoreText;*/
 
 
-    public  GameObject HiddenButton;
+    public  GameObject HiddenButtonNextScene;
+
+    public GameObject Note;
+    public GameObject NoteSolution;
+    public GameObject SolutionMusic;
+
+    public GameObject MusicPlayer0;
+    public GameObject MusicPlayer1;
+    public GameObject MusicPlayer2;
+    public GameObject MusicPlayer3;
+    public GameObject MusicPlayer4;
+    public GameObject MusicPlayer5;
+    public GameObject MusicPlayer6;
+    
+
+    private bool isSolutionPlaying;
 
     public void PressButton(int num)
     {
@@ -68,19 +83,53 @@ public class Series : MonoBehaviour
         {
             if (CheckSolution())
             {
-                QualifiedText.text = "Qualified";
-                ScoreText.text = "Your Score:" + playerPoints.ToString();
+                /*QualifiedText.text = "Qualified";
+                ScoreText.text = "Your Score:" + playerPoints.ToString();*/
                 /*Thread.Sleep(1000);*/
                 /*SceneManager.LoadScene(nextScene);*/
                 /*GameObject gameObject = GameObject.find("MusicPlayer");
                 gameObject.playMusic();*/
-                HiddenButton HB = HiddenButton.GetComponent<HiddenButton>();
-                HB.SetDisplay();
+
+
+                /*HiddenButton HB = HiddenButtonNextScene.GetComponent<HiddenButton>();
+                HB.SetDisplay();*/
+
+                isSolutionPlaying = true;
+
+                HiddenNote Solution = NoteSolution.GetComponent<HiddenNote>();
+                Solution.SetDisplay();
+
+                HiddenNote NT = Note.GetComponent<HiddenNote>();
+                CanvasGroup cg = Note.GetComponent<CanvasGroup>();
+                if (cg.alpha == 1)
+                {
+                    NT.SetHidden();
+                }
+                PlayMusic PM = SolutionMusic.GetComponent<PlayMusic>();
+                PM.playMusic();
+                //我为什么不写个数组呢？
+                Button button0 = MusicPlayer0.GetComponent<Button>();
+                button0.interactable = false;
+                Button button1 = MusicPlayer1.GetComponent<Button>();
+                button1.interactable = false;
+                Button button2 = MusicPlayer2.GetComponent<Button>();
+                button2.interactable = false;
+                Button button3 = MusicPlayer3.GetComponent<Button>();
+                button3.interactable = false;
+                Button button4 = MusicPlayer4.GetComponent<Button>();
+                button4.interactable = false;
+                Button button5 = MusicPlayer5.GetComponent<Button>();
+                button5.interactable = false;
+                Button button6 = MusicPlayer6.GetComponent<Button>();
+                button6.interactable = false;
+                
             }
             else
             {
-                QualifiedText.text = "Failed";
-                ScoreText.text = "Your Score:" + playerPoints.ToString();
+                /*QualifiedText.text = "Failed";
+                ScoreText.text = "Your Score:" + playerPoints.ToString();*/
+                HiddenNote NT = Note.GetComponent<HiddenNote>();
+                NT.SetDisplay();
             }
             currIndex = 0;
             LastPressTime = 0;
@@ -94,8 +143,8 @@ public class Series : MonoBehaviour
     public void Reset()
     {
         currIndex = 0;
-        QualifiedText.text = "Reset Completed";
-        ScoreText.text = "";
+        /*QualifiedText.text = "Reset Completed";
+        ScoreText.text = "";*/
         playerPoints = 0;
     }
 
@@ -149,7 +198,20 @@ public class Series : MonoBehaviour
     }
 
   
-
+    void Update()
+    {
+        if (isSolutionPlaying)
+        {
+            PlayMusic PM = SolutionMusic.GetComponent<PlayMusic>();
+            if (!PM.music.isPlaying)
+            {
+                HiddenButton HB = HiddenButtonNextScene.GetComponent<HiddenButton>();
+                HB.SetDisplay();
+                isSolutionPlaying = false;
+            }
+            
+        }
+    }
   
 
 
