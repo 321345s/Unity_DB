@@ -13,7 +13,7 @@ public class Series : MonoBehaviour
     public int[] ButtonSeriesSolution;
     public string nextScene;
 
-
+    
 
 
     public PlayMusic[] ArrPlayMusic;
@@ -31,21 +31,31 @@ public class Series : MonoBehaviour
 
 
     public  GameObject HiddenButtonNextScene;
+    public  GameObject HiddenButtonReset;
 
     public GameObject Note;
     public GameObject NoteSolution;
     public GameObject SolutionMusic;
 
-    public GameObject MusicPlayer0;
+
+
+    /*public GameObject MusicPlayer0;
     public GameObject MusicPlayer1;
     public GameObject MusicPlayer2;
     public GameObject MusicPlayer3;
     public GameObject MusicPlayer4;
     public GameObject MusicPlayer5;
-    public GameObject MusicPlayer6;
-    
+    public GameObject MusicPlayer6;*/
+
+    public GameObject[] MusicPlayer;
+    public GameObject[] PlayMusic;
+    public GameObject[] KeyNote;
+
+
 
     private bool isSolutionPlaying;
+
+    public int MaxButtonCount;
 
     public void PressButton(int num)
     {
@@ -94,6 +104,9 @@ public class Series : MonoBehaviour
                 /*HiddenButton HB = HiddenButtonNextScene.GetComponent<HiddenButton>();
                 HB.SetDisplay();*/
 
+                HiddenButton HBR = HiddenButtonReset.GetComponent<HiddenButton>();
+                HBR.SetHidden();
+
                 isSolutionPlaying = true;
 
                 HiddenNote Solution = NoteSolution.GetComponent<HiddenNote>();
@@ -107,8 +120,13 @@ public class Series : MonoBehaviour
                 }
                 PlayMusic PM = SolutionMusic.GetComponent<PlayMusic>();
                 PM.playMusic();
+
+                for(int i = 0; i < KeyNote.Length; i++)
+                {
+                    KeyNote[i].GetComponent<HiddenNote>().SetHidden();
+                }
                 //我为什么不写个数组呢？
-                Button button0 = MusicPlayer0.GetComponent<Button>();
+                /*Button button0 = MusicPlayer0.GetComponent<Button>();
                 button0.interactable = false;
                 Button button1 = MusicPlayer1.GetComponent<Button>();
                 button1.interactable = false;
@@ -121,8 +139,11 @@ public class Series : MonoBehaviour
                 Button button5 = MusicPlayer5.GetComponent<Button>();
                 button5.interactable = false;
                 Button button6 = MusicPlayer6.GetComponent<Button>();
-                button6.interactable = false;
-                
+                button6.interactable = false;*/
+                for(int i = 0; i < MusicPlayer.Length; i++)
+                {
+                    MusicPlayer[i].GetComponent<Button>().interactable = false;
+                }
             }
             else
             {
@@ -211,6 +232,39 @@ public class Series : MonoBehaviour
             }
             
         }
+
+        if (Input.GetKeyUp(KeyCode.A)&&0<MaxButtonCount)
+        {
+            PressButton(0);
+            PlayMusic[0].GetComponent<PlayMusic>().playMusic();
+        }
+        if (Input.GetKeyUp(KeyCode.S) && 1 < MaxButtonCount)
+        {
+            PressButton(1);
+            PlayMusic[1].GetComponent<PlayMusic>().playMusic();
+        }
+        if (Input.GetKeyUp(KeyCode.D) && 2 < MaxButtonCount)
+        {
+            PressButton(2);
+            PlayMusic[2].GetComponent<PlayMusic>().playMusic();
+        }
+        if (Input.GetKeyUp(KeyCode.J) && 3 < MaxButtonCount)
+        {
+            PressButton(3);
+            PlayMusic[3].GetComponent<PlayMusic>().playMusic();
+        }
+        if (Input.GetKeyUp(KeyCode.K) && 4 < MaxButtonCount)
+        {
+            PressButton(4);
+            PlayMusic[4].GetComponent<PlayMusic>().playMusic();
+        }
+        if (Input.GetKeyUp(KeyCode.L) && 5 < MaxButtonCount)
+        {
+            PressButton(5);
+            PlayMusic[5].GetComponent<PlayMusic>().playMusic();
+        }
+
+
     }
   
 

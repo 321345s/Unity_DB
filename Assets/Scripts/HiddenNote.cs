@@ -23,6 +23,8 @@ public class HiddenNote : MonoBehaviour
 
     public void SetHidden()
     {
+        CanvasGroup cg = GetComponent<CanvasGroup>();
+        if(cg.alpha==1)
         hidden = true;
     }
 

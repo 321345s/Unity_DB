@@ -11,6 +11,7 @@ public class TextEffects : MonoBehaviour
     int index = 0;
     string str1 = "";
     bool ison = true;
+    public int speed = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class TextEffects : MonoBehaviour
         tex = GetComponent<Text>();
         str = tex.text;
         tex.text = "";
-        i = 15;
+        i = speed;
     }
 
     public void ReSet()
@@ -26,7 +27,7 @@ public class TextEffects : MonoBehaviour
         ison = true;
         str = tex.text;
         tex.text = "";
-        i = 15;
+        i = speed;
         str1 = "";
         index = 0;
     }
@@ -47,7 +48,7 @@ public class TextEffects : MonoBehaviour
                 str1 = str1 + str[index].ToString();
                 tex.text = str1;
                 index += 1;
-                i = 15;
+                i = speed;
             }
         }
 
