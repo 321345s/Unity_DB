@@ -15,12 +15,45 @@ EditorBuildSettings:
     path: Assets/Scenes/P1_P1.unity
     guid: 1a0423e2556107c48bd7f575bddcca45
   - enabled: 1
-    path: Assets/Scenes/P1_P2.unity
-    guid: b48525e030bb9ac449e211368c06aea3
-  - enabled: 1
     path: Assets/Scenes/P2_D1.unity
     guid: d49328ee14c607641af119cf8d604921
   - enabled: 1
     path: Assets/Scenes/P2_P1.unity
     guid: 825a7a63507cea34a93d36050a345a80
+  - enabled: 1
+    path: Assets/Scenes/P1_D2.unity
+    guid: 7efa8a6ea6d6bc8488c8ed6e7986d6e4
+  - enabled: 1
+    path: Assets/Scenes/P1_D3.unity
+    guid: 67390d6479cae0d438b0454dc395a0e9
+  - enabled: 1
+    path: Assets/Scenes/P1_D4.unity
+    guid: 4f50999ceeea8ca41b677a4943c4634d
+  - enabled: 1
+    path: Assets/Scenes/P1_End.unity
+    guid: dec4d2a731a3a3c428008aa82886c422
+  - enabled: 1
+    path: Assets/Scenes/P1_P2.unity
+    guid: 91d1fd0a3699d384a84aa687965f6b39
+  - enabled: 1
+    path: Assets/Scenes/P2_D2.unity
+    guid: b190fbb55cd079f4b8bca94dea2ccbe3
+  - enabled: 1
+    path: Assets/Scenes/P2_D3.unity
+    guid: 095c68b07422a474dbce92cd6de3f381
+  - enabled: 1
+    path: Assets/Scenes/P2_D4.unity
+    guid: 93d6bbac181c5dd4483b2e403b0760e3
+  - enabled: 1
+    path: Assets/Scenes/P2_End.unity
+    guid: 8d6920b313dbf0249ab15b06c4318e2f
+  - enabled: 1
+    path: Assets/Scenes/P2_P2.unity
+    guid: 0dbc077ba30375344824c2d78f9aa667
+  - enabled: 1
+    path: Assets/Scenes/P2_P3.unity
+    guid: add698565caae544994a3a8b3cd2418f
+  - enabled: 1
+    path: Assets/Scenes/P1_P3.unity
+    guid: 9ecec8ad20f49154db2d0cb7c9a6ee05
   m_configObjects: {}
