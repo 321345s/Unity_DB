@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/P1_P1.unity
     guid: 1a0423e2556107c48bd7f575bddcca45
   - enabled: 1
+    path: Assets/Scenes/P1_End.unity
+    guid: 0ec5fbc4a5e8eca4985ba7a2691031e1
+  - enabled: 1
     path: Assets/Scenes/P2_D1.unity
     guid: d49328ee14c607641af119cf8d604921
   - enabled: 1
@@ -30,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/P1_D4.unity
     guid: 4f50999ceeea8ca41b677a4943c4634d
   - enabled: 1
-    path: Assets/Scenes/P1_End.unity
+    path: "Assets/Scenes/P1_End(\u672A\u4F7F\u7528\uFF09.unity"
     guid: dec4d2a731a3a3c428008aa82886c422
   - enabled: 1
     path: Assets/Scenes/P1_P2.unity
